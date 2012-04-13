@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Integrated Desktop
+Bundle-SymbolicName: com.id.application; singleton:=true
+Bundle-Version: 1.0.0.0
+Bundle-Activator: com.id.application.Application
+Bundle-Vendor: id
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.ui.intro
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
