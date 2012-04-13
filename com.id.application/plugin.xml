@@ -75,6 +75,44 @@
                   style="push">
             </command>
          </menu>
+         <menu
+               id="id.menu.edit"
+               label="Edit"
+               mnemonic="E">
+            <command
+                  commandId="org.eclipse.ui.edit.undo"
+                  style="push">
+            </command>
+            <command
+                  commandId="org.eclipse.ui.edit.redo"
+                  style="push">
+            </command>
+            <command
+                  commandId="org.eclipse.ui.edit.copy"
+                  style="push">
+            </command>
+            <command
+                  commandId="org.eclipse.ui.edit.cut"
+                  style="push">
+            </command>
+            <command
+                  commandId="org.eclipse.ui.edit.paste"
+                  style="push">
+            </command>
+            <command
+                  commandId="org.eclipse.ui.window.preferences"
+                  style="push">
+            </command>
+         </menu>
+         <menu
+               id="id.menu.help"
+               label="Help"
+               mnemonic="H">
+            <command
+                  commandId="org.eclipse.ui.help.quickStartAction"
+                  style="push">
+            </command>
+         </menu>
       </menuContribution>
       <menuContribution
             allPopups="false"

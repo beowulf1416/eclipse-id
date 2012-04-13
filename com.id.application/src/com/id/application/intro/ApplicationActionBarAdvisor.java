@@ -25,11 +25,11 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 
 	protected void fillMenuBar(IMenuManager menuBar) {
 		
-		MenuManager helpMenu = new MenuManager("&Help", IWorkbenchActionConstants.M_HELP);
-		menuBar.add(helpMenu);
-
-		// Help
-		helpMenu.add(introAction);
+//		MenuManager helpMenu = new MenuManager("&Help", IWorkbenchActionConstants.M_HELP);
+//		menuBar.add(helpMenu);
+//
+//		// Help
+//		helpMenu.add(introAction);
 	}
 
 }
