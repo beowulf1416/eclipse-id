@@ -14,7 +14,7 @@
    <extension
          point="org.eclipse.ui.perspectives">
       <perspective
-            name="RCP Perspective"
+            name="Introduction"
             class="com.id.application.intro.Perspective"
             id="com.id.application.perspective">
       </perspective>
@@ -24,7 +24,8 @@
          point="org.eclipse.core.runtime.products">
       <product
             application="com.id.application.application"
-            name="RCP Product">
+            description="Integrated Desktop"
+            name="id">
          <property
                name="windowImages"
                value="icons/alt_window_16.gif,icons/alt_window_32.gif">
@@ -56,6 +57,44 @@
             </implementation>
          </presentation>
       </config>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <menu
+               id="id.menu.file"
+               label="File"
+               mnemonic="F">
+            <command
+                  commandId="org.eclipse.ui.file.exit"
+                  id="id.menu.file.exit"
+                  label="Exit"
+                  mnemonic="x"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="id.toolbar">
+            <command
+                  commandId="org.eclipse.ui.newWizard"
+                  style="push">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="com.id.application.preferences.GeneralPreferencePage"
+            id="com.id.preferences.pages.general"
+            name="General">
+      </page>
    </extension>
 
 </plugin>

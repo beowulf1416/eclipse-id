@@ -19,8 +19,9 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
     public void preWindowOpen() {
         IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
         configurer.setInitialSize(new Point(700, 550));
-        configurer.setShowCoolBar(false);
-        configurer.setShowStatusLine(false);
-        configurer.setTitle("RCP Product");
+        configurer.setShowMenuBar(true);
+        configurer.setShowCoolBar(true);
+        configurer.setShowStatusLine(true);
+        configurer.setTitle("id");
     }
 }
