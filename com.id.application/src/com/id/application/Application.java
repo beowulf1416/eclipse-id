@@ -15,6 +15,8 @@ public class Application extends AbstractUIPlugin {
 	// The shared instance
 	private static Application plugin;
 	
+	User _user;
+	
 	/**
 	 * The constructor
 	 */
@@ -57,5 +59,12 @@ public class Application extends AbstractUIPlugin {
 	 */
 	public static ImageDescriptor getImageDescriptor(String path) {
 		return imageDescriptorFromPlugin(PLUGIN_ID, path);
+	}
+	
+	public User get_user(){
+		if(_user == null){
+			_user = new User();
+		}
+		return _user;
 	}
 }

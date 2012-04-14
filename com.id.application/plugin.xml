@@ -113,6 +113,18 @@
                   style="push">
             </command>
          </menu>
+         <menu
+               id="id.menu.user"
+               label="User"
+               mnemonic="U">
+            <command
+                  commandId="id.commands.user.signin"
+                  id="id.menu.user.signin"
+                  label="Sign In"
+                  mnemonic="I"
+                  style="push">
+            </command>
+         </menu>
       </menuContribution>
       <menuContribution
             allPopups="false"
@@ -133,6 +145,29 @@
             id="com.id.preferences.pages.general"
             name="General">
       </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="id.commands.user"
+            name="User">
+      </category>
+      <command
+            category="id.commands.user"
+            categoryId="id.commands.user"
+            description="Sign In"
+            helpContextId="id.commands.user.signin"
+            id="id.commands.user.signin"
+            name="Sign In">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.id.application.handlers.SignInHandler"
+            commandId="id.commands.user.signin"
+            helpContextId="id.commands.user.signin">
+      </handler>
    </extension>
 
 </plugin>

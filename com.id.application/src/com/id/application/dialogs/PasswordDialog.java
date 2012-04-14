@@ -11,9 +11,13 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.jface.fieldassist.ControlDecoration;
+
+import com.id.application.Application;
+import com.id.application.User;
 
 public class PasswordDialog extends TitleAreaDialog {
-	private Text txtName;
+	private Text txtUsername;
 	private Text txtPassword;
 
 	/**
@@ -30,25 +34,37 @@ public class PasswordDialog extends TitleAreaDialog {
 	 */
 	@Override
 	protected Control createDialogArea(Composite parent) {
+		setMessage("Please provide your user name and password");
+		setTitle("Sign In");
 		Composite area = (Composite) super.createDialogArea(parent);
 		Composite container = new Composite(area, SWT.NONE);
-		container.setLayout(new GridLayout(2, false));
+		GridLayout gl_container = new GridLayout(2, false);
+		gl_container.marginHeight = 20;
+		gl_container.marginWidth = 20;
+		container.setLayout(gl_container);
 		container.setLayoutData(new GridData(GridData.FILL_BOTH));
 		
 		Label lblUserName = new Label(container, SWT.NONE);
 		lblUserName.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		lblUserName.setText("User name");
 		
-		txtName = new Text(container, SWT.BORDER);
-		txtName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		txtUsername = new Text(container, SWT.BORDER);
+		txtUsername.setText("Username");
+		txtUsername.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		
+		ControlDecoration controlDecoration = new ControlDecoration(txtUsername, SWT.LEFT | SWT.TOP);
+		controlDecoration.setDescriptionText("Please enter a user name");
 		
 		Label lblPassword = new Label(container, SWT.NONE);
 		lblPassword.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		lblPassword.setText("Password");
 		
 		txtPassword = new Text(container, SWT.BORDER | SWT.PASSWORD);
-		txtPassword.setText("");
+		txtPassword.setText("Password");
 		txtPassword.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		
+		ControlDecoration controlDecoration_1 = new ControlDecoration(txtPassword, SWT.LEFT | SWT.TOP);
+		controlDecoration_1.setDescriptionText("Please enter a password");
 
 		return area;
 	}
@@ -72,4 +88,15 @@ public class PasswordDialog extends TitleAreaDialog {
 	protected Point getInitialSize() {
 		return new Point(450, 300);
 	}
+	
+	@Override
+	protected void okPressed() {
+		try {
+			User user = Application.getDefault().get_user();
+			user.authenticate(txtUsername.getText(), txtPassword.getText());
+		} catch(SecurityException e){
+			setErrorMessage(e.getMessage());
+		}
+	}
+
 }
