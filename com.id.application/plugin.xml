@@ -145,6 +145,11 @@
             id="com.id.preferences.pages.general"
             name="General">
       </page>
+      <page
+            class="com.id.application.preferences.SecurityPreferencePage"
+            id="com.id.preferences.pages.security"
+            name="Security">
+      </page>
    </extension>
    <extension
          point="org.eclipse.ui.commands">
