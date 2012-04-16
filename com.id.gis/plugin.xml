@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="com.id.gis.ui.MapEditor"
+            id="com.id.gis.ui.MapEditor"
+            name="Map">
+      </editor>
+   </extension>
+</plugin>
